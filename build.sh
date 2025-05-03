@@ -1,3 +1,5 @@
+set -eu
+
 # apt-get update
 # apt-get install -y curl g++ gcc libc6-dev libffi-dev libgmp-dev libncurses-dev make xz-utils zlib1g-dev git gnupg netbase cmake
 # curl -sSL https://get.haskellstack.org/ | sh
