@@ -1,0 +1,65 @@
+on:
+  push:
+    branches:
+      - master
+    tags:
+      - '*'
+  pull_request:
+
+name: build
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-22.04
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: true
+
+      - uses: haskell-actions/setup@v2
+        id: setup-haskell
+        name: Setup Haskell
+        with:
+          ghc-version: 9.6.6
+          enable-stack: true
+          stack-version: 'latest'
+          cabal-update: false
+
+      - name: Setup stack to use system GHC
+        run: stack config set system-ghc --global true
+
+      - name: Install packages (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y curl g++ gcc libc6-dev libffi-dev libgmp-dev libncurses-dev make xz-utils zlib1g-dev git gnupg netbase cmake
+
+      - uses: actions/cache@v4
+        name: Cache ~/.stack
+        with:
+          path: ${{ steps.setup-haskell.outputs.stack-root }}
+          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('src/toysolver/toysolver.cabal', 'src/toysolver/stack.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.ghc }}-
+
+      - name: Build
+        shell: bash
+        run: bash build_static.sh
+
+      - name: Build artifact
+        shell: bash
+        run: |
+          rm -r src/toysolver/.stack-work
+          rm -r src/printemps/build
+          mkdir -p dest/printemps-pb
+          cp -a LICENSE README.md bin build.sh build_static.sh src dest/printemps-pb/
+          cd dest
+          find . -name ".git" -exec rm -rf {} +
+          tar zcf ../printemps-pb.tar.gz printemps-pb
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: binary-packages
+          path: printemps-pb.tar.gz
