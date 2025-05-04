@@ -45,7 +45,7 @@ jobs:
 
       - name: Build
         shell: bash
-        run: bash build_static.sh
+        run: bash build.sh
 
       - name: Build artifact
         shell: bash
