@@ -58,6 +58,13 @@ jobs:
           find . -name ".git" -exec rm -rf {} +
           tar zcf ../printemps-pb.tar.gz printemps-pb
 
+      - name: ldd
+        run: |
+          echo "ldd bin/toyconvert"
+          ldd bin/toyconvert
+          echo "ldd bin/mps_solver"
+          ldd bin/mps_solver
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
