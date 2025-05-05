@@ -33,5 +33,7 @@ python3 DIR/bin/main.py --time-limit TIMELIMIT --tmpdir TMPDIR --seed RANDOMSEED
 ## Build from source
 
 * Install necessary packages
-  * Ubuntu: `curl`, `g++`, `gcc`, `libc6-dev`, `libffi-dev`, `libgmp-dev`, `libncurses-dev`, `make`, `xz-utils`, `zlib1g-dev`, `git`, `gnupg`, `netbase`, `cmake`  
+  * Ubuntu: `curl`, `g++`, `gcc`, `libc6-dev`, `libffi-dev`, `libgmp-dev`, `libncurses-dev`, `make`, `xz-utils`, `zlib1g-dev`, `git`, `gnupg`, `netbase`, `cmake`
+* Install the [Haskell Tool Stack](https://docs.haskellstack.org/en/stable/)
+  * `curl -sSL https://get.haskellstack.org/ | sh`
 * Run `build.sh` or `build_static.sh`
