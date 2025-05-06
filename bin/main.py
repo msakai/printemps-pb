@@ -1,6 +1,7 @@
 import argparse
 import json
 import re
+import signal
 import subprocess
 import sys
 import time
@@ -86,6 +87,16 @@ popen = subprocess.Popen(
     encoding="us-ascii",
     cwd=tmpdir,
 )
+
+def handle_sigterm(signum, frame):
+    # Send SIGTERM to the child process
+    popen.terminate()
+
+signal.signal(signal.SIGTERM, handle_sigterm)
+
+# Ctrl-C sends SIGINT to both the parent and child processes.
+# The parent process (this process) ignores it and waits for the child process to terminate.
+signal.signal(signal.SIGINT, signal.SIG_IGN)
 
 o_value = None
 incumbent_objective_pat = re.compile(r'^INFO\s+:\s+-- Incumbent objective: ([^ ]+)')
