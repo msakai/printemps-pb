@@ -61,9 +61,9 @@ jobs:
       - name: ldd
         run: |
           echo "ldd bin/toyconvert"
-          ldd bin/toyconvert
+          ldd bin/toyconvert || true
           echo "ldd bin/mps_solver"
-          ldd bin/mps_solver
+          ldd bin/mps_solver || true
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
