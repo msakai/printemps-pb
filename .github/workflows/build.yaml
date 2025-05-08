@@ -59,6 +59,9 @@ jobs:
 
       - name: ldd
         run: |
+          # The `ldd` command is used to check the shared library dependencies of the binaries.
+          # Failures are ignored (`|| true`) because the binaries are expected to be statically linked,
+          # and missing shared libraries are not an issue in this case.
           echo "ldd bin/toyconvert"
           ldd bin/toyconvert || true
           echo "ldd bin/mps_solver"
