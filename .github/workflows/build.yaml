@@ -21,7 +21,6 @@ jobs:
         id: setup-haskell
         name: Setup Haskell
         with:
-          ghc-version: 9.6.6
           enable-stack: true
           stack-version: 'latest'
           cabal-update: false
