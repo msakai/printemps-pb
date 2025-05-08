@@ -67,6 +67,25 @@ jobs:
           echo "ldd bin/mps_solver"
           ldd bin/mps_solver || true
 
+      - name: Check that bin/toyconvert works
+        run: |
+          bin/toyconvert samples/testlin.opb --linearize -o testlin.mps
+          bin/toyconvert samples/testnlc.opb --linearize -o testnls.mps
+          bin/toyconvert samples/mult.opb --linearize -o mult.mps
+          bin/toyconvert samples/example1.wbo --linearize -o example1.mps
+          bin/toyconvert samples/example2.wbo --linearize -o example2.mps
+          bin/toyconvert samples/example2.wbo --linearize -o example3.mps
+
+      - name: Check that bin/mps_solver works
+        run: |
+          bin/mps_solver mult.mps
+          cat incumbent.json
+
+      - name: Check that bin/main.py works
+        run: |
+          mkdir tmp
+          python3 bin/main.py --time-limit 10 --tmpdir tmp --seed 1 samples/mult.opb
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
