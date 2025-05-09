@@ -52,7 +52,7 @@ if int_size >= 53:
 mps_filename = tmpdir / (Path(args.benchname).stem + ".mps")
 
 subprocess.run(
-    [bin_dir / "toyconvert", args.benchname, "-o", str(mps_filename), "--linearize"],
+    [bin_dir / "toyconvert", args.benchname, "-o", str(mps_filename), "--linearize", "--pb-fast-parser"],
     check=True,
     input="",
     encoding="us-ascii",
