@@ -84,7 +84,7 @@ jobs:
       - name: Check that bin/main.py works
         run: |
           mkdir tmp
-          python3 bin/main.py --time-limit 10 --tmpdir tmp --seed 1 samples/mult.opb
+          python3 bin/main.py --time-limit 10 --reserve-output-time 1 --tmpdir tmp --seed 1 samples/mult.opb
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4

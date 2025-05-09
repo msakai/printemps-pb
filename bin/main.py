@@ -11,6 +11,7 @@ start_time = time.time()
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--time-limit', type=int, default=30)
+parser.add_argument('--reserve-output-time', type=int, default=0)
 parser.add_argument('--tmpdir')
 parser.add_argument('--seed', type=int)
 parser.add_argument('benchname')
@@ -76,8 +77,8 @@ if args.seed is not None:
         json.dump(options, f)
     mps_solver_args.extend(["-p", str(tmpdir / "options.json")])
 
-start_time_2 = time.time()
-mps_solver_args.extend(["-t", str(int(args.time_limit - (start_time_2 - start_time)))])  # TIME_MAX
+time_max = int(max(0, args.time_limit - (time.time() - start_time) - args.reserve_output_time))
+mps_solver_args.extend(["-t", str(time_max)])
 
 popen = subprocess.Popen(
     mps_solver_args,
