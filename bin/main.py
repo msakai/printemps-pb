@@ -74,7 +74,7 @@ if args.seed is not None:
     }
     with open(tmpdir / "options.json", "w") as f:
         json.dump(options, f)
-    mps_solver_args.append(str(tmpdir / "options.json"))
+    mps_solver_args.extend(["-p", str(tmpdir / "options.json")])
 
 start_time_2 = time.time()
 mps_solver_args.extend(["-t", str(int(args.time_limit - (start_time_2 - start_time)))])  # TIME_MAX
