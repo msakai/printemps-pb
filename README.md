@@ -7,7 +7,7 @@ Wrapper of [PRINTEMPS](https://snowberryfield.github.io/printemps/) intended for
 ### Suggested command line
 
 ```
-python3 DIR/bin/main.py --time-limit TIMELIMIT --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
+python3 DIR/bin/main.py --time-limit TIMELIMIT --reserve-output-time 5 --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
 ```
 
 ### Complete or not?
