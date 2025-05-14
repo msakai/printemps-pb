@@ -52,12 +52,15 @@ if int_size >= 53:
 
 mps_filename = tmpdir / (Path(args.benchname).stem + ".mps")
 
+convert_start_time = time.time()
 subprocess.run(
     [bin_dir / "toyconvert", args.benchname, "-o", str(mps_filename), "--linearize", "--pb-fast-parser"],
     check=True,
     input="",
     encoding="us-ascii",
 )
+convert_end_time = time.time()
+print(f"c conversion time: {convert_end_time - convert_start_time} seconds", flush=True)
 
 mps_solver_args = [
     str(bin_dir / "mps_solver"),
