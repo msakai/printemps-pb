@@ -4,6 +4,7 @@ import re
 import signal
 import subprocess
 import sys
+import tempfile
 import time
 from pathlib import Path
 
@@ -20,7 +21,12 @@ args = parser.parse_args()
 cwd = Path.cwd()
 bin_dir = Path(__file__).parent.resolve()
 benchname = cwd / args.benchname
-tmpdir = cwd / args.tmpdir
+
+if args.tmpdir is None:
+    tmpdir_obj = tempfile.TemporaryDirectory()
+    tmpdir = Path(tmpdir_obj.name)
+else:
+    tmpdir = cwd / args.tmpdir
 
 incumbent_path = tmpdir / "incumbent.json"
 incumbent_path.unlink(missing_ok=True)
