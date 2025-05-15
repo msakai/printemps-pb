@@ -14,3 +14,9 @@ stack_docker_args=(--docker --docker-image "quay.io/benz0li/ghc-musl:9.6.6")
 )
 
 (cd src/printemps && make -f makefile/Makefile.application STATIC=ON && cp build/application/Release/mps_solver ../../bin)
+
+(
+  cd src/runsolver/src \
+  && docker run -v $(pwd):/work -w /work --rm --user=root alpinelinux/build-base sh -c "apk add numactl-dev && make STATIC=-static" \
+  && cp runsolver ../../../bin/
+)

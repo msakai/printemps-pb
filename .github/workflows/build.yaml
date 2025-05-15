@@ -86,6 +86,11 @@ jobs:
           mkdir tmp
           python3 bin/main.py --time-limit 10 --reserve-output-time 1 --tmpdir tmp --seed 1 samples/mult.opb
 
+      - name: Check that runsolver + bin/main.py works
+        run: |
+          mkdir tmp2
+          bin/runsolver -d 5 -C $((10-5-1)) -W $((10-5-1)) -v tmp2/out.v -w tmp2/out.w python3 bin/main.py --tmpdir tmp2 --seed 1 samples/mult.opb
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
