@@ -6,6 +6,14 @@ Wrapper of [PRINTEMPS](https://snowberryfield.github.io/printemps/) intended for
 
 ### Suggested command line
 
+Using `runsolver`:
+
+```
+DIR/bin/runsolver -d 5 -C $((TIMELIMIT-5-1)) -W $((TIMELIMIT-5-1)) -v TMPDIR/out.v -w TMPDIR/out.w python3 DIR/bin/main.py --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
+```
+
+Without using `runsolver`:
+
 ```
 python3 DIR/bin/main.py --time-limit TIMELIMIT --reserve-output-time 5 --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
 ```

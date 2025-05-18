@@ -11,3 +11,9 @@ set -eu
 )
 
 (cd src/printemps && make -f makefile/Makefile.application && cp build/application/Release/mps_solver ../../bin)
+
+(
+  cd src/runsolver/src \
+  && make \
+  && cp runsolver ../../../bin/
+)
