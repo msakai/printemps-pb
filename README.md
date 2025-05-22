@@ -9,13 +9,13 @@ Wrapper of [PRINTEMPS](https://snowberryfield.github.io/printemps/) intended for
 Using `runsolver`:
 
 ```
-DIR/bin/runsolver -d 5 -C $((TIMELIMIT-5-1)) -W $((TIMELIMIT-5-1)) -v TMPDIR/out.v -w TMPDIR/out.w python3 DIR/bin/main.py --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
+DIR/bin/runsolver -d 5 -C $((TIMELIMIT-5-1)) -W $((TIMELIMIT-5-1)) -v TMPDIR/out.v -w TMPDIR/out.w DIR/bin/pb_competition_2025_solver -k 10000000 -j NBCORE -r RANDOMSEED BENCHNAME
 ```
 
 Without using `runsolver`:
 
 ```
-python3 DIR/bin/main.py --time-limit TIMELIMIT --reserve-output-time 5 --tmpdir TMPDIR --seed RANDOMSEED BENCHNAME
+DIR/bin/pb_competition_2025_solver -k 10000000 -t TIMELIMIT -j NBCORE -r RANDOMSEED BENCHNAME
 ```
 
 ### Complete or not?
@@ -34,14 +34,8 @@ python3 DIR/bin/main.py --time-limit TIMELIMIT --reserve-output-time 5 --tmpdir 
 * ☑ PARTIAL-LIN (WBO, both soft and hard constraints, linear constraints)
 * ☑ SOFT-LIN (WBO, only soft constraints, linear constraints)
 
-## Requirements
-
-* Python 3
-
 ## Build from source
 
 * Install necessary packages
-  * Ubuntu: `curl`, `g++`, `gcc`, `libc6-dev`, `libffi-dev`, `libgmp-dev`, `libncurses-dev`, `make`, `xz-utils`, `zlib1g-dev`, `git`, `gnupg`, `netbase`, `cmake`
-* Install the [Haskell Tool Stack](https://docs.haskellstack.org/en/stable/)
-  * `curl -sSL https://get.haskellstack.org/ | sh`
+  * Ubuntu: `cmake`, `gcc`, `g++`, `make`
 * Run `build.sh` or `build_static.sh`
