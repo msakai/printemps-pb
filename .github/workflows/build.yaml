@@ -17,30 +17,11 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - uses: haskell-actions/setup@v2
-        id: setup-haskell
-        name: Setup Haskell
-        with:
-          enable-stack: true
-          stack-version: 'latest'
-          cabal-update: false
-
-      - name: Setup stack to use system GHC
-        run: stack config set system-ghc --global true
-
       - name: Install packages (Linux)
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y curl g++ gcc libc6-dev libffi-dev libgmp-dev libncurses-dev make xz-utils zlib1g-dev git gnupg netbase cmake
-
-      - uses: actions/cache@v4
-        name: Cache ~/.stack
-        with:
-          path: ${{ steps.setup-haskell.outputs.stack-root }}
-          key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('src/toysolver/toysolver.cabal', 'src/toysolver/stack.yaml') }}
-          restore-keys: |
-            ${{ runner.os }}-${{ matrix.ghc }}-
+          sudo apt-get install -y cmake gcc g++ make
 
       - name: Build
         shell: bash
@@ -49,7 +30,6 @@ jobs:
       - name: Build artifact
         shell: bash
         run: |
-          rm -r src/toysolver/.stack-work
           rm -r src/printemps/build
           mkdir -p dest/printemps-pb
           cp -a LICENSE README.md bin build.sh build_static.sh src dest/printemps-pb/
@@ -62,34 +42,21 @@ jobs:
           # The `ldd` command is used to check the shared library dependencies of the binaries.
           # Failures are ignored (`|| true`) because the binaries are expected to be statically linked,
           # and missing shared libraries are not an issue in this case.
-          echo "ldd bin/toyconvert"
-          ldd bin/toyconvert || true
-          echo "ldd bin/mps_solver"
-          ldd bin/mps_solver || true
+          echo "ldd bin/pb_competition_2025_solver"
+          ldd bin/pb_competition_2025_solver || true
+          echo "ldd bin/runsolver"
+          ldd bin/runsolver || true
 
-      - name: Check that bin/toyconvert works
+      - name: Check that pb_competition_2025_solver works
         run: |
-          bin/toyconvert samples/testlin.opb --linearize -o testlin.mps
-          bin/toyconvert samples/testnlc.opb --linearize -o testnls.mps
-          bin/toyconvert samples/mult.opb --linearize -o mult.mps
-          bin/toyconvert samples/example1.wbo --linearize -o example1.mps
-          bin/toyconvert samples/example2.wbo --linearize -o example2.mps
-          bin/toyconvert samples/example2.wbo --linearize -o example3.mps
+          bin/pb_competition_2025_solver samples/mult.opb
 
-      - name: Check that bin/mps_solver works
+      - name: Check that runsolver + pb_competition_2025_solver works
         run: |
-          bin/mps_solver mult.mps
-          cat incumbent.json
-
-      - name: Check that bin/main.py works
-        run: |
-          mkdir tmp
-          python3 bin/main.py --time-limit 10 --reserve-output-time 1 --tmpdir tmp --seed 1 samples/mult.opb
-
-      - name: Check that runsolver + bin/main.py works
-        run: |
-          mkdir tmp2
-          bin/runsolver -d 5 -C $((10-5-1)) -W $((10-5-1)) -v tmp2/out.v -w tmp2/out.w python3 bin/main.py --tmpdir tmp2 --seed 1 samples/mult.opb
+          set -x
+          bin/runsolver -d 5 -C $((10-5-1)) -W $((10-5-1)) -v out.v -w out.w bin/pb_competition_2025_solver -k 1000000 -r 1 samples/mult.opb
+          cat out.v
+          cat out.w
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
