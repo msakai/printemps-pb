@@ -49,12 +49,12 @@ jobs:
 
       - name: Check that pb_competition_2025_solver works
         run: |
-          bin/pb_competition_2025_solver samples/mult.opb
+          bin/pb_competition_2025_solver -t 10 -r 1 samples/mult.opb
 
       - name: Check that runsolver + pb_competition_2025_solver works
         run: |
           set -x
-          bin/runsolver -d 5 -C $((10-5-1)) -W $((10-5-1)) -v out.v -w out.w bin/pb_competition_2025_solver -k 1000000 -r 1 samples/mult.opb
+          bin/runsolver -d 5 -C $((10-5-1)) -W $((10-5-1)) -v out.v -w out.w bin/pb_competition_2025_solver -r 1 samples/mult.opb
           cat out.v
           cat out.w
 

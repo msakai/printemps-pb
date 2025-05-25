@@ -9,13 +9,13 @@ Wrapper of [PRINTEMPS](https://snowberryfield.github.io/printemps/) intended for
 Using `runsolver`:
 
 ```
-DIR/bin/runsolver -d 5 -C $((TIMELIMIT-5-1)) -W $((TIMELIMIT-5-1)) -v TMPDIR/out.v -w TMPDIR/out.w DIR/bin/pb_competition_2025_solver -k 10000000 -j NBCORE -r RANDOMSEED BENCHNAME
+DIR/bin/runsolver -d 5 -C $((TIMELIMIT-5-1)) -W $((TIMELIMIT-5-1)) -v TMPDIR/out.v -w TMPDIR/out.w DIR/bin/pb_competition_2025_solver -j NBCORE -r RANDOMSEED BENCHNAME
 ```
 
 Without using `runsolver`:
 
 ```
-DIR/bin/pb_competition_2025_solver -k 10000000 -t TIMELIMIT -j NBCORE -r RANDOMSEED BENCHNAME
+DIR/bin/pb_competition_2025_solver -t $((TIMELIMIT-5)) -j NBCORE -r RANDOMSEED BENCHNAME
 ```
 
 ### Complete or not?
