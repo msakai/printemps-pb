@@ -1,6 +1,3 @@
-[submodule "src/toysolver"]
-	path = src/toysolver
-	url = git@github.com:msakai/toysolver.git
 [submodule "src/printemps"]
 	path = src/printemps
-	url = git@github.com:msakai/printemps.git
+	url = git@github.com:snowberryfield/printemps.git
