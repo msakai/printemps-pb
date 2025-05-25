@@ -3,6 +3,8 @@ set -eu
 # apt-get update
 # apt-get install -y cmake gcc g++ make
 
+mkdir -p bin
+
 (cd src/printemps && make -f makefile/Makefile.extra STATIC=ON && cp build/extra/Release/pb_competition_2025_solver ../../bin)
 
 (
