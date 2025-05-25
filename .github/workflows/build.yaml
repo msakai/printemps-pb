@@ -31,6 +31,7 @@ jobs:
         shell: bash
         run: |
           rm -r src/printemps/build
+          make -C src/runsolver/src clean
           mkdir -p dest/printemps-pb
           cp -a LICENSE README.md bin build.sh build_static.sh src dest/printemps-pb/
           cd dest
