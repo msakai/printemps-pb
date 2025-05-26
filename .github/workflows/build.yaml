@@ -51,6 +51,10 @@ jobs:
         run: |
           bin/pb_competition_2025_solver -k -1 -t 10.0 -r 1 samples/mult.opb
 
+      - name: Check that pb_competition_2025_solver works with -j
+        run: |
+          bin/pb_competition_2025_solver -k -1 -t 10.0 -r 1 -j $(nproc) samples/mult.opb
+
       - name: Check that runsolver + pb_competition_2025_solver works
         run: |
           set -x
