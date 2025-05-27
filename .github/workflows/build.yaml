@@ -23,6 +23,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y cmake gcc g++ make
 
+      - name: Show target info
+        run: gcc -march=native -Q --help=target
+
       - name: Build
         shell: bash
         run: bash build_static.sh
