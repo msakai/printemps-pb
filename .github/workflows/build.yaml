@@ -21,11 +21,11 @@ jobs:
         if: runner.os == 'Linux'
         run: |
           sudo apt-get update
-          sudo apt-get install -y cmake gcc g++ make
+          sudo apt-get install -y cmake gcc g++ libnuma-dev make
 
       - name: Build
         shell: bash
-        run: bash build_static.sh
+        run: bash build_static_pb25_submission.sh
 
       - name: Build artifact
         shell: bash
@@ -33,7 +33,7 @@ jobs:
           rm -r src/printemps/build
           make -C src/runsolver/src clean
           mkdir -p dest/printemps-pb
-          cp -a LICENSE README.md bin build.sh build_static.sh src dest/printemps-pb/
+          cp -a LICENSE README.md bin build.sh build_static.sh build_static_pb25_submission.sh src dest/printemps-pb/
           cd dest
           find . -name ".git" -exec rm -rf {} +
           tar zcf ../printemps-pb.tar.gz printemps-pb

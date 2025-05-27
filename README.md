@@ -1,6 +1,6 @@
-# PRINTEMPS-pb
+# PRINTEMPS for Pseudo Boolean Competition
 
-Wrapper of [PRINTEMPS](https://snowberryfield.github.io/printemps/) intended for submitting to [PB25 competition](https://www.cril.univ-artois.fr/PB25/).
+[PRINTEMPS](https://snowberryfield.github.io/printemps/) solver for [PB25 competition](https://www.cril.univ-artois.fr/PB25/) submission.
 
 ## Solver information
 
@@ -18,6 +18,10 @@ Without using `runsolver`:
 DIR/bin/pb_competition_2025_solver -k -1 -t $((TIMELIMIT-5)) -j NBCORE -r RANDOMSEED BENCHNAME
 ```
 
+Since it may take some time to print solution after receiving the SIGTERM, some amount of time is subtracted from time limit to have enough time to print solution.
+
+Also, since `pb_competition_2025_solver` only supports time limits in wall clock time but not support time limits in CPU time, it is wrapped by `runsolver` to support time limits in CPU time.
+
 ### Complete or not?
 
 * ☐ Complete (your solver can answer UNSATISFIABLE)
@@ -34,8 +38,18 @@ DIR/bin/pb_competition_2025_solver -k -1 -t $((TIMELIMIT-5)) -j NBCORE -r RANDOM
 * ☑ PARTIAL-LIN (WBO, both soft and hard constraints, linear constraints)
 * ☑ SOFT-LIN (WBO, only soft constraints, linear constraints)
 
-## Build from source
+## Binary executables
 
-* Install necessary packages
-  * Ubuntu: `cmake`, `gcc`, `g++`, `make`
-* Run `build.sh` or `build_static.sh`
+Statically linked executables are included in the submission archive.
+
+Note that `pb_competition_2025_solver` was built using `-march broadwell`.
+If the architecture of the evaluation environment is older than Broadwell, please build from source code using the following instructions.
+
+## Build from source code
+
+* Option 1.
+    1. Install necessary packages (e.g. `cmake`, `gcc`, `g++`, `libnuma-dev`, `make` on Ubuntu Linux)
+    2. Run `bash build.sh` or `bash build_static.sh`
+* Option 2 (Statically linking `musl` instead of `glibc`).
+    1. Install Docker
+    2. Run `docker run -v $(pwd):/work -w /work --rm --user=root alpinelinux/build-base sh -c "apk add numactl-dev && sh build_static.sh"`
