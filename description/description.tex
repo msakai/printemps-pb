@@ -1,0 +1,101 @@
+%% Template: IEEE Bare Demo Template for Conferences
+%% https://www.overleaf.com/latex/templates/ieee-bare-demo-template-for-conferences/ypypvwjmvtdf
+\documentclass[conference]{IEEEtran}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{url}
+\usepackage{bm}
+
+\begin{document}
+\title{\huge An Incomplete Approach to Pseudo-Boolean Problems \\with Metaheuristic Solver PRINTEMPS}
+
+% author names and affiliations
+\author{\IEEEauthorblockN{Yuji Koguma}
+\IEEEauthorblockA{
+Email: yuji.koguma@gmail.com}
+\and
+\IEEEauthorblockN{Masahiro Sakai}
+\IEEEauthorblockA{
+Email: masahiro.sakai@gmail.com}
+}
+
+\maketitle
+
+\begin{abstract}
+PRINTEMPS is a metaheuristic solver originally developed for general integer linear programming (ILP) problems. For the Pseudo-Boolean (PB) Competition 2025. It has been extended to handle PB problems, including those with nonlinear terms and soft constraints.
+\end{abstract}
+
+\section{Introduction}
+PRINTEMPS (PoRtable INTEger Mathematical Programming Solver) is a metaheuristic solver developed by the first author for general integer linear programming (ILP) problems \cite{printemps}.
+It has been extended to handle pseudo-Boolean (PB) problems for the Pseudo-Boolean Competition 2025 \cite{pb25}.
+This document provides the supported problems, computational overview of PRINTEMPS, and the extension for PB problems. 
+
+\section{Supported Problems}
+Since PRINTEMPS is based on heuristics, it can prove neither the optimality of a solution nor the infeasibility of an instance. 
+Therefore, we submitted to the following categories: 
+{\bf DEC-LIN} (decision problem with linear constraints, no UNSAT certificate),
+{\bf DEC-NLC} (decision problem with nonlinear constraints, no UNSAT certificate),
+{\bf OPT-LIN} (optimization problem with linear constraints, no OPT/UNSAT certificate),
+{\bf OPT-NLC} (optimization problem with nonlinear constraints, no OPT/UNSAT certificate),
+{\bf PARTIAL-LIN} (optimization problem with both soft and hard linear constraints), and 
+{\bf SOFT-LIN} (optimization problem with only soft linear constraints).
+In all cases, each coefficient value must fit within the range of a 31-bit signed integer. 
+
+\section{Computational Overview of PRINTEMPS}
+An ILP problem can be formulated as follows:
+%
+\begin{IEEEeqnarray}{rcl}
+    (\mathrm{ILP}): &\underset{\bm{x} \in \mathbb{Z}^{N},\, \bm{l} \le \bm{x} \le \bm{u}}{\mathrm{minimize}}\,& \bm{c}^{\top}\bm{x} \nonumber \\
+    &\mathrm{subject\,to} \enspace & \bm{A}_{1}^{\top}\bm{x} = \bm{b}_{1}, \enspace \bm{A}_{2}^{\top}\bm{x} \le \bm{b}_{2}, \nonumber 
+\end{IEEEeqnarray}
+%
+where $N$ is the number of variables, $\bm{c} \in \mathbb{R}^{N}$ is the cost vector, and $\bm{l}, \bm{u} \in \mathbb{Z}^{N}$ $(\bm{l} \le \bm{u})$ are the lower and upper bounds of $\bm{x}$, respectively.
+The matrices $\bm{A}_{1}, \bm{A}_{2}$ and the vectors $\bm{b}_{1}, \bm{b}_{2}$ have appropriate dimensions consistent with $\bm{x}$.
+
+PRINTEMPS searches for solutions to an instance of (ILP) using Weighted Tabu Search that minimizes an objective function penalized by constraint violations \cite{Nonobe.1998}. 
+It also incorporates performance-enhancing techniques tailored for (ILP).
+They include instance size reduction, dependent variable extraction, neighborhood filtering, and incremental penalty evaluation \cite{Koguma.2024}.
+
+\section{Extension for PB problems}
+Among the problem types listed in Sec.~II, \textbf{DEC-LIN} and \textbf{OPT-LIN} are subsets of (ILP) and therefore can be addressed without any special treatment.
+
+In contrast, \textbf{DEC-NLC} and \textbf{OPT-NLC} involve products of binary variables.
+To handle this nonlinearity, PRINTEMPS applies a linearization technique \cite{Roussel.2009} . For a product of $K$ binary variables $\prod_{n=1}^{K}x_{n}$, a new binary variable $y:=\prod_{n=1}^{K}x_{n}$ is introduced along with the following two linear constraints\footnote{Although it is possible to use $K$ simpler constraints in the form of $y \leq x_{i}$ instead of the $K y \leq \sum_{n=1}^{K} x_n$, we have chosen the latter single constraint for implementation simplicity and for reducing the number of constraints.}:
+\begin{IEEEeqnarray}{c}
+    K y \leq \sum_{n=1}^{K} x_n, \quad y \geq \sum_{n=1}^{K} x_n - (K - 1). \nonumber
+\end{IEEEeqnarray}
+
+The other problem types, \textbf{PARTIAL-LIN} and \textbf{SOFT-LIN}, involve soft constraints.
+A soft equality constraint $\bm{a}^{\top}\bm{x} = b$ with an associated cost $w$ is replaced with
+\begin{IEEEeqnarray}{c}
+    M^{-}y^{-} \le \bm{a}^{\top}\bm{x} - b \le M^{+}y^{+}  \nonumber
+\end{IEEEeqnarray}
+together with the penalty $w(y^{-} + y^{+})$ in the objective function, where 
+$y^{-}, y^{+}$ are new binary variables\footnote{Introducing two auxiliary variables rather than one is not common. However, we believe that this approach is preferable for the weighting algorithm, since the tendency of violation can differ between the upper and lower sides.}, $M^{-} \!=\! \underset{\bm{x}}{\min}\{\bm{a}^{\top}\bm{x} \!-\! b\}$ and $M^{+} \!=\! \underset{\bm{x}}{\max}\{\bm{a}^{\top}\bm{x} \!-\! b\}$ are sufficiently large constants such that the constraints are always satisfied if either $y^{-}\!=\!1$ or $y^{+}\!=\!1$.
+The same approach applies to soft inequality constraints.
+
+\section{Conclusion}
+The metaheuristic ILP solver PRINTEMPS has been extended to handle PB problems, including those with nonlinear terms and soft constraints.
+
+\begin{thebibliography}{1}
+\bibitem{printemps}
+PRINTEMPS C++ metaheuristics modeler/solver for general integer optimization problems, \url{https://snowberryfield.github.io/printemps/}.
+
+\bibitem{pb25}
+Pseudo-Boolean Competition 2025, \url{https://www.cril.univ-artois.fr/PB25/}.
+
+\bibitem{Nonobe.1998}
+K.~Nonobe and T.~Ibaraki, ``A Tabu Search Approach to the Constraint Satisfaction Problem as a General Problem Solver,'' \emph{Eur. J. Oper. Res.}, Vol.~106, pp.~599--623, 1998, doi:10.1016/S0377-2217(97)00294-4.
+
+\bibitem{Koguma.2024}
+Y.~Koguma, Tabu ``Search-Based Heuristic Solver for General Integer Linear Programming Problems," {\em IEEE Access}, Vol.~12, pp.~19059--19076, 2024, doi: 10.1109/ACCESS.2024.3361323.
+
+\bibitem{Roussel.2009}
+O.~Roussel, V.~Manquinho, ``Pseudo-Boolean and Cardinality Constraints,'' {\em Handbook of Satisfiability}, pp.~695--733, 2009, doi:10.3233/978-1-58603-929-5-695.
+
+\end{thebibliography}
+\end{document}
+
+
