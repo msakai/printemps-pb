@@ -4,6 +4,8 @@
 
 ## Solver information
 
+[Solver description](description/description.pdf)
+
 ### Suggested command line
 
 Using `runsolver`:
