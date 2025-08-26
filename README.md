@@ -72,25 +72,25 @@ PRINTEMPS:
 
 |category|all instances|# solved|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|104|35th among 36 solvers|
-|DEC-LIN (SAT answers)|165|104|28th among 36 solvers|
-|DEC-NLC|10|8|5th among 12 solvers|
-|DEC-NLC (SAT answers)|8|8|4th among 12 solvers|
-|OPT-LIN|555|0|45th among 46 solvers|
-|OPT-NLC|57|0|12th among 12 solvers|
-|PARTIAL-LIN|208|0|9th among 9 solvers|
-|SOFT-LIN|60|0|9th among 9 solvers|
+|DEC-LIN|502|104 (20.7%)|35th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104 (63.0%)|28th among 36 solvers|
+|DEC-NLC|10|8 (80.0%)|5th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8 (100%)|4th among 12 solvers|
+|OPT-LIN|555|0 (0.0%)|45th among 46 solvers|
+|OPT-NLC|57|0 (0.0%)|12th among 12 solvers|
+|PARTIAL-LIN|208|0 (0.0%)|9th among 9 solvers|
+|SOFT-LIN|60|0 (0.0%)|9th among 9 solvers|
 
 PRINTEMPS (20 cores):
 
 |category|all instances|# solved|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|104|36th among 36 solvers|
-|DEC-LIN (SAT answers)|165|104|31st among 36 solvers|
-|DEC-NLC|10|8|7th among 12 solvers|
-|DEC-NLC (SAT answers)|8|8|6th among 12 solvers|
-|OPT-LIN|555|0|46th among 46 solvers|
-|OPT-NLC|57|0|12th among 12 solvers|
+|DEC-LIN|502|104 (20.7%)|36th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104 (63.0%)|31st among 36 solvers|
+|DEC-NLC|10|8 (80.0%)|7th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8 (100%)|6th among 12 solvers|
+|OPT-LIN|555|0 (0.0%)|46th among 46 solvers|
+|OPT-NLC|57|0 (0.0%)|12th among 12 solvers|
 
 Source:
 - [PBS/PBO: CPU Ranking of solvers on all selected instances (including those not supported by some solvers)](https://www.cril.univ-artois.fr/PB25/results/results.php?idev=115)
@@ -106,21 +106,21 @@ PRINTEMPS:
 
 |category|all instances|# best known|rank|
 |-|-:|-:|-:|
-|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104|35th-36th (tie) among 36 solvers|
-|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8|4th-11th (tie) among 12 solvers|
-|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|231|37th among 46 solvers|
-|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23|8th-9th (tie) among 13 solvers|
-|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|135|7th among 9 solvers|
-|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|47|8th among 9 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104 (20.7%)|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8 (80.0%)|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|231 (41.6%)|37th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23 (40.4%)|8th-9th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|135 (64.9%)|7th among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|47 (78.3%)|8th among 9 solvers|
 
 PRINTEMPS (20 cores):
 
 |category|all instances|# best known|rank|
 |-|-:|-:|-:|
-|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104|35th-36th (tie) among 36 solvers|
-|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8|4th-11th (tie) among 12 solvers|
-|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|245|36th among 46 solvers|
-|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23|8th-9th (tie) among 13 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104 (20.7%)|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8 (80.0%)|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|245 (44.1%)|36th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23 (40.4%)|8th-9th (tie) among 13 solvers|
 
 #### Number of times the solver is the best solver from an incomplete solver point of view
 
@@ -131,18 +131,18 @@ PRINTEMPS:
 
 |category|all instances|# best solver|rank|
 |-|-:|-:|-:|
-|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|9|9th among 36 solvers|
-|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1|3rd-4th (tie) among 12 solvers|
-|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|42|6th among 46 solvers|
-|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|6|4th-5th (tie) among 13 solvers|
-|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|57|2nd among 9 solvers|
-|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|24|1st among 9 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|9 (1.8%)|9th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1 (10.0%)|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|42 (7.6%)|6th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|6 (10.5%)|4th-5th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|57 (27.4%)|2nd among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|24 (40.0%)|1st among 9 solvers|
 
 PRINTEMPS (20 cores):
 
 |category|all instances|# best solver|rank|
 |-|-:|-:|-:|
-|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|13|4th among 36 solvers|
-|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1|3rd-4th (tie) among 12 solvers|
-|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|65|3rd among 46 solvers|
-|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|10|2nd-3rd (tie) among 13 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|13 (2.6%)|4th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1 (10.0%)|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|65 (11.7%)|3rd among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|10 (17.5%)|2nd-3rd (tie) among 13 solvers|
