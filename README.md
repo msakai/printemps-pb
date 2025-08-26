@@ -70,7 +70,7 @@ If the architecture of the evaluation environment is older than Broadwell, pleas
 
 PRINTEMPS:
 
-|category|all instances|#solved|rank|
+|category|all instances|# solved|rank|
 |-|-:|-:|-:|
 |DEC-LIN|502|104|35th among 36 solvers|
 |DEC-LIN (SAT answers)|165|104|28th among 36 solvers|
@@ -83,7 +83,7 @@ PRINTEMPS:
 
 PRINTEMPS (20 cores):
 
-|category|all instances|#solved|rank|
+|category|all instances|# solved|rank|
 |-|-:|-:|-:|
 |DEC-LIN|502|104|36th among 36 solvers|
 |DEC-LIN (SAT answers)|165|104|31st among 36 solvers|
