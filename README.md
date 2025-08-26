@@ -92,6 +92,11 @@ PRINTEMPS (20 cores):
 |OPT-LIN|555|0|46th among 46 solvers|
 |OPT-NLC|57|0|12th among 12 solvers|
 
+Source:
+- [PBS/PBO: CPU Ranking of solvers on all selected instances (including those not supported by some solvers)](https://www.cril.univ-artois.fr/PB25/results/results.php?idev=115)
+- [WBO: Ranking of solvers](https://www.cril.univ-artois.fr/PB25/results/results.php?idev=118)
+
+
 #### Number of times the solver is able to give the best known answer from an incomplete solver point of view (i.e. without considering optimality proof)
 
 > [!NOTE]
@@ -101,21 +106,21 @@ PRINTEMPS:
 
 |category|all instances|# best known|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|104|35th-36th (tie) among 36 solvers|
-|DEC-NLC|10|8|4th-11th (tie) among 12 solvers|
-|OPT-LIN|555|231|37th among 46 solvers|
-|OPT-NLC|57|23|8th-9th (tie) among 13 solvers|
-|PARTIAL-LIN|208|135|7th among 9 solvers|
-|SOFT-LIN|60|47|8th among 9 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|231|37th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23|8th-9th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|135|7th among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|47|8th among 9 solvers|
 
 PRINTEMPS (20 cores):
 
 |category|all instances|# best known|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|104|35th-36th (tie) among 36 solvers|
-|DEC-NLC|10|8|4th-11th (tie) among 12 solvers|
-|OPT-LIN|555|245|36th among 46 solvers|
-|OPT-NLC|57|23|8th-9th (tie) among 13 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|245|36th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23|8th-9th (tie) among 13 solvers|
 
 #### Number of times the solver is the best solver from an incomplete solver point of view
 
@@ -126,18 +131,18 @@ PRINTEMPS:
 
 |category|all instances|# best solver|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|9|9th among 36 solvers|
-|DEC-NLC|10|1|3rd-4th (tie) among 12 solvers|
-|OPT-LIN|555|42|6th among 46 solvers|
-|OPT-NLC|57|6|4th-5th (tie) among 13 solvers|
-|PARTIAL-LIN|208|57|2nd among 9 solvers|
-|SOFT-LIN|60|24|1st among 9 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|9|9th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|42|6th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|6|4th-5th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|57|2nd among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|24|1st among 9 solvers|
 
 PRINTEMPS (20 cores):
 
 |category|all instances|# best solver|rank|
 |-|-:|-:|-:|
-|DEC-LIN|502|13|4th among 36 solvers|
-|DEC-NLC|10|1|3rd-4th (tie) among 12 solvers|
-|OPT-LIN|555|65|3rd among 46 solvers|
-|OPT-NLC|57|10|2nd-3rd (tie) among 13 solvers|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|13|4th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|65|3rd among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|10|2nd-3rd (tie) among 13 solvers|
