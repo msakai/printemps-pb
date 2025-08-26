@@ -55,3 +55,89 @@ If the architecture of the evaluation environment is older than Broadwell, pleas
 * Option 2 (Statically linking `musl` instead of `glibc`).
     1. Install Docker
     2. Run `docker run -v $(pwd):/work -w /work --rm --user=root alpinelinux/build-base sh -c "apk add numactl-dev && sh build_static.sh"`
+
+## Submission for [Pseudo Boolean Competition 2025 (PB25)](https://www.cril.univ-artois.fr/PB25/)
+
+* [Solver archive](https://github.com/msakai/printemps-pb/releases/download/PB25-submission-20250528/printemps-pb.tar.gz) ([Github Release](https://github.com/msakai/printemps-pb/releases/tag/PB25-submission-20250528))
+* [Solver description](description/description.pdf)
+
+### Some results
+
+#### Complete solver point of view (Number of solved instances, tie broken by CPU time)
+
+> [!NOTE]
+> Since PRINTEMPS is an INCOMPLETE solver, it cannot SOLVE instances from a complete solver point of view, except for instances where the answers are SAT.
+
+PRINTEMPS:
+
+|category|all instances|#solved|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104|35th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104|28th among 36 solvers|
+|DEC-NLC|10|8|5th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8|4th among 12 solvers|
+|OPT-LIN|555|0|45th among 46 solvers|
+|OPT-NLC|57|0|12th among 12 solvers|
+|PARTIAL-LIN|208|0|9th among 9 solvers|
+|SOFT-LIN|60|0|9th among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|#solved|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104|36th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104|31st among 36 solvers|
+|DEC-NLC|10|8|7th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8|6th among 12 solvers|
+|OPT-LIN|555|0|46th among 46 solvers|
+|OPT-NLC|57|0|12th among 12 solvers|
+
+#### Number of times the solver is able to give the best known answer from an incomplete solver point of view (i.e. without considering optimality proof)
+
+> [!NOTE]
+> These results are computed from the table on “Results for each bench by categories” pages.
+
+PRINTEMPS:
+
+|category|all instances|# best known|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104|35th-36th (tie) among 36 solvers|
+|DEC-NLC|10|8|4th-11th (tie) among 12 solvers|
+|OPT-LIN|555|231|37th among 46 solvers|
+|OPT-NLC|57|23|8th-9th (tie) among 13 solvers|
+|PARTIAL-LIN|208|135|7th among 9 solvers|
+|SOFT-LIN|60|47|8th among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|# best known|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104|35th-36th (tie) among 36 solvers|
+|DEC-NLC|10|8|4th-11th (tie) among 12 solvers|
+|OPT-LIN|555|245|36th among 46 solvers|
+|OPT-NLC|57|23|8th-9th (tie) among 13 solvers|
+
+#### Number of times the solver is the best solver from an incomplete solver point of view
+
+> [!NOTE]
+> These results are computed from the table on “Results for each bench by categories” pages.
+
+PRINTEMPS:
+
+|category|all instances|# best solver|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|9|9th among 36 solvers|
+|DEC-NLC|10|1|3rd-4th (tie) among 12 solvers|
+|OPT-LIN|555|42|6th among 46 solvers|
+|OPT-NLC|57|6|4th-5th (tie) among 13 solvers|
+|PARTIAL-LIN|208|57|2nd among 9 solvers|
+|SOFT-LIN|60|24|1st among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|# best solver|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|13|4th among 36 solvers|
+|DEC-NLC|10|1|3rd-4th (tie) among 12 solvers|
+|OPT-LIN|555|65|3rd among 46 solvers|
+|OPT-NLC|57|10|2nd-3rd (tie) among 13 solvers|
