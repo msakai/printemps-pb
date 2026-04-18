@@ -55,3 +55,94 @@ If the architecture of the evaluation environment is older than Broadwell, pleas
 * Option 2 (Statically linking `musl` instead of `glibc`).
     1. Install Docker
     2. Run `docker run -v $(pwd):/work -w /work --rm --user=root alpinelinux/build-base sh -c "apk add numactl-dev && sh build_static.sh"`
+
+## Submission for [Pseudo Boolean Competition 2025 (PB25)](https://www.cril.univ-artois.fr/PB25/)
+
+* [Solver archive](https://github.com/msakai/printemps-pb/releases/download/PB25-submission-20250528/printemps-pb.tar.gz) ([Github Release](https://github.com/msakai/printemps-pb/releases/tag/PB25-submission-20250528))
+* [Solver description](description/description.pdf)
+
+### Some results
+
+#### Complete solver point of view (Number of solved instances, tie broken by CPU time)
+
+> [!NOTE]
+> Since PRINTEMPS is an INCOMPLETE solver, it cannot SOLVE instances from a complete solver point of view, except for instances where the answers are SAT.
+
+PRINTEMPS:
+
+|category|all instances|# solved|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104 (20.7%)|35th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104 (63.0%)|28th among 36 solvers|
+|DEC-NLC|10|8 (80.0%)|5th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8 (100%)|4th among 12 solvers|
+|OPT-LIN|555|0 (0.0%)|45th among 46 solvers|
+|OPT-NLC|57|0 (0.0%)|12th among 12 solvers|
+|PARTIAL-LIN|208|0 (0.0%)|9th among 9 solvers|
+|SOFT-LIN|60|0 (0.0%)|9th among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|# solved|rank|
+|-|-:|-:|-:|
+|DEC-LIN|502|104 (20.7%)|36th among 36 solvers|
+|DEC-LIN (SAT answers)|165|104 (63.0%)|31st among 36 solvers|
+|DEC-NLC|10|8 (80.0%)|7th among 12 solvers|
+|DEC-NLC (SAT answers)|8|8 (100%)|6th among 12 solvers|
+|OPT-LIN|555|0 (0.0%)|46th among 46 solvers|
+|OPT-NLC|57|0 (0.0%)|12th among 12 solvers|
+
+Source:
+- [PBS/PBO: CPU Ranking of solvers on all selected instances (including those not supported by some solvers)](https://www.cril.univ-artois.fr/PB25/results/results.php?idev=115)
+- [WBO: Ranking of solvers](https://www.cril.univ-artois.fr/PB25/results/results.php?idev=118)
+
+
+#### Number of times the solver is able to give the best known answer from an incomplete solver point of view (i.e. without considering optimality proof)
+
+> [!NOTE]
+> These results are computed from the table on “Results for each bench by categories” pages.
+
+PRINTEMPS:
+
+|category|all instances|# best known|rank|
+|-|-:|-:|-:|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104 (20.7%)|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8 (80.0%)|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|231 (41.6%)|37th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23 (40.4%)|8th-9th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|135 (64.9%)|7th among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|47 (78.3%)|8th among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|# best known|rank|
+|-|-:|-:|-:|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|104 (20.7%)|35th-36th (tie) among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|8 (80.0%)|4th-11th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|245 (44.1%)|36th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|23 (40.4%)|8th-9th (tie) among 13 solvers|
+
+#### Number of times the solver is the best solver from an incomplete solver point of view
+
+> [!NOTE]
+> These results are computed from the table on “Results for each bench by categories” pages.
+
+PRINTEMPS:
+
+|category|all instances|# best solver|rank|
+|-|-:|-:|-:|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|9 (1.8%)|9th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1 (10.0%)|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|42 (7.6%)|6th among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|6 (10.5%)|4th-5th (tie) among 13 solvers|
+|[PARTIAL-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=118&idcat=119)|208|57 (27.4%)|2nd among 9 solvers|
+|[SOFT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|60|24 (40.0%)|1st among 9 solvers|
+
+PRINTEMPS (20 cores):
+
+|category|all instances|# best solver|rank|
+|-|-:|-:|-:|
+|[DEC-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=112)|502|13 (2.6%)|4th among 36 solvers|
+|[DEC-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=116)|10|1 (10.0%)|3rd-4th (tie) among 12 solvers|
+|[OPT-LIN](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=113)|555|65 (11.7%)|3rd among 46 solvers|
+|[OPT-NLC](https://www.cril.univ-artois.fr/PB25/results/globalbybench.php?idev=115&idcat=117)|57|10 (17.5%)|2nd-3rd (tie) among 13 solvers|
