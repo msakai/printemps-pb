@@ -2,6 +2,8 @@
 
 [PRINTEMPS](https://snowberryfield.github.io/printemps/) solver for [PB25 competition](https://www.cril.univ-artois.fr/PB25/) submission.
 
+For 2026 submission, see [msakai/printemps-pb26](https://github.com/msakai/printemps-pb26).
+
 ## Solver information
 
 [Solver description](description/description.pdf)
